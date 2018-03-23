@@ -155,6 +155,24 @@ export class GoogleAnalyticsTracker {
   }
 
   /**
+   * Track product action
+   * @param {Object} product        An object with product values
+   * @param {String} eventAction    The event action, defaults to Purchase
+   */
+  trackProductActionEvent(product = {}, actionType = "click", eventCategory = "Ecommerce", eventAction = "Click") {
+    GoogleAnalyticsBridge.trackProductActionEvent(this.id, product, actionType, eventCategory, eventAction);
+  }
+
+  /**
+   * Track product impression
+   * @param {Object} product        An object with product values
+   * @param {String} eventAction    The event action, defaults to Purchase
+   */
+  trackProductImpression(product = {}, actionType = "click", eventCategory = "Ecommerce", eventAction = "Click") {
+    GoogleAnalyticsBridge.trackProductActionEvent(this.id, product, actionType, eventCategory, eventAction);
+  }
+
+  /**
    * Track an exception
    * @param  {String} error The description of the error
    * @param  {Boolean} fatal A value indiciating if the error was fatal, defaults to false

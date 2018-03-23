@@ -72,6 +72,15 @@ export class GoogleAnalyticsBackwardsCompability {
   trackMultiProductsPurchaseEventWithCustomDimensionValues(products = [], transaction = {}, eventCategory = "Ecommerce", eventAction = "Purchase", customDimensionValues) {
     this.tracker.trackMultiProductsPurchaseEventWithCustomDimensionValues(products, transaction, eventCategory, eventAction, customDimensionValues);
   }
+  
+  /**
+   * Track product action
+   * @param {Object} product        An object with product values
+   * @param {String} eventAction    The event action, defaults to Purchase
+   */
+  trackProductActionEvent(product = {}, actionType = "click", eventCategory = "Ecommerce", eventAction = "Click") {
+    this.tracker.trackProductActionEvent(product, actionType, eventCategory, eventAction);
+  }
 
   trackException(error, fatal = false) {
     this.tracker.trackException(error, fatal);
